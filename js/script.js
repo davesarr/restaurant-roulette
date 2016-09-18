@@ -1,4 +1,7 @@
-"use strict"
+"use strict";
+const Converter = require("csvtojson").Converter;
+const converter = new Converter({});
+var fs = require("fs");
 
 $(function(){
 
@@ -12,13 +15,23 @@ $(function(){
     }
     else
     {
-      console.log('success: ', zipCheck);
-      // randomize length of restaurant array and return one restaurant
-      // post to display-area
-      // appendMessage(JSON obj)
-    }
-  });
-
+			fs.createReadStream(
+				"/Users/nyxnaut/code/restaurant-roulette/db/df_NYC.csv"
+			).pipe(converter);
+			converter.on("end_parsed", function(jsonArray) {
+				var restaurantsMatchingZipcode = jsonArray.filter( function( el ){
+					if ( el['ZIP'].toString() === zipCheck ) {
+						return true
+					}
+				});
+				var randomIndex = Math.floor(
+					Math.random()*restaurantsMatchingZipcode.length
+				);
+				var restaurant = restaurantsMatchingZipcode[randomIndex];
+				appendMessage( restaurant );
+			});
+		}
+	});
 
   var appendMessage = function(obj){
     if (obj.error){
@@ -27,8 +40,14 @@ $(function(){
       $display.append($div);
       $('.search').hide();
     } else {
-      // function:: random location that will is working on
-      // messaging from the restaurant
+			var $display = $('.display-area')
+			var $name = $('<h3 class="name">' + obj.name + '</h3>')
+			var $cuisine = $('<h5 class="cuisine">' + obj.cuisine + '</h5>')
+			var $blurb = $('<p class="blurb">' + obj.blurb + '</p>')
+			$display.append($name)
+			$display.append($cuisine)
+			$display.append($blurb)
+      $('.search').hide();
     };
     var resetButton = $('<button class="reset">Reset</div>');
     $('.one-button').append(resetButton);
