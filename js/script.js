@@ -22,7 +22,7 @@ $(function(){
 
   var appendMessage = function(obj){
     if (obj.error){
-      var $div = $('<div>Not a proper zipcode #####</div>');
+      var $div = $('<div class="zip"> Invalid zip code !!!</div>');
       var $display = $('.display-area');
       $display.append($div);
       $('.search').hide();
