@@ -54,7 +54,6 @@ The following technologies were used for this web application:
 We used electron-packager for the build process. To repeat, run the following lines in your terminal. 
 
 1. npm install -g electron-packager
-
 2. electron-packager . --platform=darwin --no-prune --overwrite
 
 ---
