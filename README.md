@@ -49,6 +49,12 @@ The following technologies were used for this web application:
 
 ---
 
+### Compile Process for OSX
+We used electron-packager for the build process. To repeat runnin the following lines in your terminal. 
+1. npm install -g electron-packager
+2. electron-packager . --platform=darwin --no-prune --overwrite
+---
+
 ### Sources
 
 * [Electron](http://electron.atom.io/)
