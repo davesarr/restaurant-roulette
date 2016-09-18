@@ -4,7 +4,8 @@
   "main": "main.js",
   "dependencies": {},
   "devDependencies": {
-    "electron-prebuilt": "^0.35.2"
+    "electron-prebuilt": "^0.35.2",
+    "csvtojson": "^1.0.2"
   },
   "scripts": {
     "start": "electron main.js",

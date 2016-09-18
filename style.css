@@ -60,6 +60,9 @@ button:hover {
   left: 20%;
   top: 40%;
 }
+.reset{
+  display: hidden;
+}
 
 .transparent {
   background: rgba(255, 255, 255, .2);

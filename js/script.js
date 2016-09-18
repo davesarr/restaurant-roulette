@@ -1,7 +1,5 @@
 "use strict";
 const Converter = require("csvtojson").Converter;
-const converter = new Converter({});
-var fs = require("fs");
 
 $(function(){
 
@@ -15,19 +13,19 @@ $(function(){
     }
     else
     {
-			fs.createReadStream(
-				"/Users/nyxnaut/code/restaurant-roulette/db/df_NYC.csv"
-			).pipe(converter);
-			converter.on("end_parsed", function(jsonArray) {
-				var restaurantsMatchingZipcode = jsonArray.filter( function( el ){
+			const converter = new Converter({});
+			converter.fromFile("/Users/nyxnaut/code/restaurant-roulette/db/df_NYC.csv"
+				,function(err,result){
+				var restaurantsMatchingZipcode = result.filter( function( el ){
 					if ( el['ZIP'].toString() === zipCheck ) {
-						return true
+						return true;
 					}
 				});
 				var randomIndex = Math.floor(
 					Math.random()*restaurantsMatchingZipcode.length
 				);
 				var restaurant = restaurantsMatchingZipcode[randomIndex];
+				restaurant.error = false;
 				appendMessage( restaurant );
 			});
 		}
@@ -40,13 +38,13 @@ $(function(){
       $display.append($div);
       $('.search').hide();
     } else {
-			var $display = $('.display-area')
-			var $name = $('<h3 class="name">' + obj.name + '</h3>')
-			var $cuisine = $('<h5 class="cuisine">' + obj.cuisine + '</h5>')
-			var $blurb = $('<p class="blurb">' + obj.blurb + '</p>')
-			$display.append($name)
-			$display.append($cuisine)
-			$display.append($blurb)
+			var $display = $('.display-area');
+			var $name = $('<h3 class="name">' + obj.name + '</h3>');
+			var $cuisine = $('<h5 class="cuisine">' + obj.cuisine + '</h5>');
+			var $blurb = $('<p class="blurb">' + obj.blurb + '</p>');
+			$display.append($name);
+			$display.append($cuisine);
+			$display.append($blurb);
       $('.search').hide();
     };
     var resetButton = $('<button class="reset">Reset</div>');
