@@ -15,6 +15,7 @@ $(function(){
       console.log('success: ', zipCheck);
       // randomize length of restaurant array and return one restaurant
       // post to display-area
+      // appendMessage(JSON obj)
     }
   });
 
@@ -27,6 +28,7 @@ $(function(){
       $('.search').hide();
     } else {
       // function:: random location that will is working on
+      // messaging from the restaurant
     };
 
     $('.one-button').append($('<button class="reset">Reset</div>'));
