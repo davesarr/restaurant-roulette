@@ -22,7 +22,7 @@ $(function(){
 
   var appendMessage = function(obj){
     if (obj.error){
-      var $div = $('<div class="zip"> Invalid zip code !!!</div>');
+      var $div = $('<div class="zip"> Invalid Zipcode </div>');
       var $display = $('.display-area');
       $display.append($div);
       $('.search').hide();
@@ -30,8 +30,8 @@ $(function(){
       // function:: random location that will is working on
       // messaging from the restaurant
     };
-
-    $('.one-button').append($('<button class="reset">Reset</div>'));
+    var resetButton = $('<button class="reset">Reset</div>');
+    $('.one-button').append(resetButton);
     $('.reset').on('click', function(){
       resetEverything();
     });
