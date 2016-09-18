@@ -14,7 +14,7 @@ $(function(){
     else
     {
 			const converter = new Converter({});
-			converter.fromFile("/Users/nyxnaut/code/restaurant-roulette/db/df_NYC.csv"
+			converter.fromFile("/Users/youngwoo/desktop/restaurant_roulette/db/df_NYC.csv"
 				,function(err,result){
 				var restaurantsMatchingZipcode = result.filter( function( el ){
 					if ( el['ZIP'].toString() === zipCheck ) {
