@@ -1,5 +1,6 @@
 "use strict";
-const Converter = require("csvtojson").Converter;
+var db = require('./js/data.js');
+//const Converter = require("csvtojson").Converter;
 
 $(function(){
 
@@ -13,21 +14,25 @@ $(function(){
     }
     else
     {
-			const converter = new Converter({});
-			converter.fromFile("/Users/youngwoo/desktop/restaurant_roulette/db/df_NYC.csv"
-				,function(err,result){
-				var restaurantsMatchingZipcode = result.filter( function( el ){
-					if ( el['ZIP'].toString() === zipCheck ) {
-						return true;
-					}
-				});
-				var randomIndex = Math.floor(
-					Math.random()*restaurantsMatchingZipcode.length
-				);
-				var restaurant = restaurantsMatchingZipcode[randomIndex];
-				restaurant.error = false;
-				appendMessage( restaurant );
+// 			const converter = new Converter({});
+// 			converter.fromFile("./db/df_NYC.csv"
+// 				,function(err,result){
+// 				var restaurantsMatchingZipcode = result.filter( function( el ){
+// 					if ( el['ZIP'].toString() === zipCheck ) {
+// 						return true;
+// 					}
+// 				});
+			var restaurantsMatchingZipcode = db.data.filter( function ( el ){
+				if ( el['ZIP'].toString() === zipCheck ) {
+					return true;
+				}
 			});
+			var randomIndex = Math.floor(
+				Math.random()*restaurantsMatchingZipcode.length
+			);
+			var restaurant = restaurantsMatchingZipcode[randomIndex];
+			restaurant.error = false;
+			appendMessage( restaurant );
 		}
 	});
 
