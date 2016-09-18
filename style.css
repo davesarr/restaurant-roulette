@@ -1,0 +1,66 @@
+body{
+  font-family: 'Work Sans', sans-serif;
+  background:
+  url("img/burger.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+input[type=text] {
+  font-family: 'Roboto', sans-serif;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.40s ease-in-out;
+  font-style: italic;
+  font-size: 30px;
+  border: 0;
+  border-radius: 2px;
+}
+
+/* input[type=text]:focus {
+    width: 50%;
+    height: 30px;
+} */
+
+.display-area {
+  font-family: 'Roboto', sans-serif;
+  margin-top: 15px;
+}
+
+.one-button{
+  padding-top: 10px;
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  border-style: none;
+  width: 150px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-radius: 3px;
+  font-size: 25px;
+  padding: 5px 30px;
+  background-color: #C62828;
+  color: white;
+
+}
+
+button:hover {
+  background-color: #B71C1C;
+  color: white;
+}
+
+.zip{
+  font-size: 25px;
+  color:  #ffffff;
+}
+
+.container{
+  width: 300px;
+  position: absolute;
+  left: 20%;
+  top: 40%;
+}
+
+.transparent {
+  background: rgba(255, 255, 255, .2);
+}
